@@ -21,11 +21,11 @@ public abstract class ModScreenMixin extends Screen {
 
 	@Override
 	public void removed() {
-		KeepMyScroll.scrollAmount = this.modList.getScrollAmount();
+		KeepMyScroll.scrollAmount = this.modList.getScrollY();
 		super.removed();
 	}
 	@Inject(method = "init", at = @At("TAIL"))
 	private void initTail(CallbackInfo ci) {
-		this.modList.setScrollAmount(KeepMyScroll.scrollAmount);
+		this.modList.setScrollY(KeepMyScroll.scrollAmount);
 	}
 }
